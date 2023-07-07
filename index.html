@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gridlink</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="responsive.css">
+        <link rel="stylesheet" href="feature.css">
+        <link rel="stylesheet" href="contact_form.css">
+        <link rel="stylesheet" href="success_content.css">
+        <link rel="stylesheet" href="cta.css">
+        <link rel="stylesheet" href="overlay.css">
+        <link rel="stylesheet" href="confetti.css">
+        <link rel="stylesheet" href="success_popup.css">
+      </head>
+<body>
+  <div id="app">
+    <header class="header">
+      <h1 class="logo">Gridlink</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Welcome to Gridlink</h1>
+        <p class="hero-subtitle">Revolutionizing energy solutions</p>
+        <a href="#" class="cta-button">Get Started</a>
+      </div>
+    </section>
+
+    <section class="features" :class="{ 'single-column': isSmallScreen }">
+      <div class="container">
+        <div class="features-grid">
+          <div v-for="feature in features" :key="feature.id" class="feature" :class="{ 'animate': feature.animate }">
+            <div class="feature-inner">
+              <i :class="['fas', feature.icon]"></i>
+              <h3>{{ feature.title }}</h3>
+              <p>{{ feature.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <form v-on:submit.prevent="submitForm">
+          <input type="text" placeholder="Your Name" v-model="contact.name">
+          <input type="email" placeholder="Your Email" v-model="contact.email">
+          <textarea placeholder="Your Message" v-model="contact.message"></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2023 Gridlink. All rights reserved.</p>
+    </footer>
+
+    <div class="overlay" v-if="showSuccessPopup" v-on:click="showSuccessPopup = false">
+      <div class="success-popup">
+        <i class="fas fa-check-circle"></i>
+        <h3>Success!</h3>
+        <p>Your message has been submitted.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <script src="vue.js"></script>
+
+  <div class="confetti">
+    <span class="confetti-emoji">&#127881;</span>
+    <span class="confetti-emoji">&#127882;</span>
+    <span class="confetti-emoji">&#127881;</span>
+    <!-- Add more confetti emojis as desired -->
+  </div>
+  
+</body>
+</html>
