@@ -1,0 +1,23 @@
+.confetti {
+    position: fixed;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    pointer-events: none;
+  }
+  
+  .confetti-emoji {
+    font-size: 2rem;
+    animation: confetti-fall 3s infinite;
+  }
+  
+  @keyframes confetti-fall {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, 100vh) rotate(720deg);
+    }
+  }
+  
